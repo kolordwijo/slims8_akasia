@@ -93,7 +93,7 @@ if (isset($_POST['saveData']) AND $can_read AND $can_write) {
         $data['invoice_date'] = $_POST['invcDate'];
         $data['price_currency'] = trim($dbs->escape_string(strip_tags($_POST['priceCurrency'])));
         if (!$data['price_currency']) { $data['price_currency'] = 'literal{NULL}'; }
-        $data['price'] = preg_replace('@[.,\-a-z ]@i', '', strip_tags($_POST['price']));
+        $data['price'] = preg_replace('@[,\-a-z ]@i', '', strip_tags($_POST['price']));
         $data['input_date'] = date('Y-m-d H:i:s');
         $data['last_update'] = date('Y-m-d H:i:s');
 
