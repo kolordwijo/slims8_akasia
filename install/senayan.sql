@@ -289,7 +289,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   `site` varchar(50) collate utf8_unicode_ci default NULL,
   `source` int(1) NOT NULL default '0',
   `invoice` varchar(20) collate utf8_unicode_ci default NULL,
-  `price` int(11) default NULL,
+  `price` decimal(10,2) default NULL,
   `price_currency` varchar(10) collate utf8_unicode_ci default NULL,
   `invoice_date` date default NULL,
   `input_date` datetime NOT NULL,
