@@ -49,7 +49,7 @@ if (($ajaxsec_user == $sysconf['ajaxsec_user']) AND ($ajaxsec_passwd == $sysconf
         $copy_q = $dbs->query('SELECT i.item_code, i.call_number, loc.location_name, stat.*, i.site FROM item AS i
             LEFT JOIN mst_item_status AS stat ON i.item_status_id=stat.item_status_id
             LEFT JOIN mst_location AS loc ON i.location_id=loc.location_id
-            WHERE i.biblio_id='.$id);
+            WHERE i.biblio_id='.$id.' ORDER BY i.item_code ASC ' );
         if ($copy_q->num_rows < 1) {
             echo '<strong style="color: red; font-weight: bold;">'.__('There is no item/copy for this title yet').'</strong>';
         } else {
