@@ -358,7 +358,7 @@ class detail extends content_list
         $_copy_q = $this->obj_db->query('SELECT i.item_code, i.call_number, stat.item_status_name, loc.location_name, stat.rules, i.site FROM item AS i '
             .'LEFT JOIN mst_item_status AS stat ON i.item_status_id=stat.item_status_id '
             .'LEFT JOIN mst_location AS loc ON i.location_id=loc.location_id '
-            .'WHERE i.biblio_id='.$this->detail_id);
+            .'WHERE i.biblio_id='.$this->detail_id.' ORDER BY i.item_code ASC ');
         if ($_copy_q->num_rows > 0) {
             $_xml_output .= '<holdingSimple>'."\n";
             while ($_copy_d = $_copy_q->fetch_assoc()) {
@@ -509,7 +509,7 @@ class detail extends content_list
         $_copy_q = $this->obj_db->query('SELECT i.item_code, i.call_number, stat.item_status_name, loc.location_name, stat.rules, i.site FROM item AS i '
             .'LEFT JOIN mst_item_status AS stat ON i.item_status_id=stat.item_status_id '
             .'LEFT JOIN mst_location AS loc ON i.location_id=loc.location_id '
-            .'WHERE i.biblio_id='.$this->detail_id);
+            .'WHERE i.biblio_id='.$this->detail_id.' ORDER BY i.item_code ASC ' );
         if ($_copy_q->num_rows > 0) {
             while ($_copy_d = $_copy_q->fetch_assoc()) {
                 $_xml_output .= '<dc:hasPart>'.$_copy_d['item_code'].'</dc:hasPart>'."\n";
